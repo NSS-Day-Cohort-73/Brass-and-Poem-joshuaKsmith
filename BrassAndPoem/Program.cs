@@ -50,7 +50,6 @@ List<ProductType> productTypes = new List<ProductType>()
 };
 
 //put your greeting here
-Console.Clear();
 Console.WriteLine("Welcome to Brass & Poem!");
 
 //implement your loop here
@@ -70,7 +69,6 @@ void DisplayMenu()
         );
 
         choice = Console.ReadLine();
-        Console.Clear();
         if (choice == "1")
         {
             DisplayAllProducts(products, productTypes);
@@ -116,7 +114,6 @@ void DeleteProduct(List<Product> products, List<ProductType> productTypes)
     }
     int delistChoice = int.Parse(Console.ReadLine().Trim()) - 1;
     products.RemoveAt(delistChoice);
-    Console.Clear();
     Console.WriteLine($"Product deleted!");
 }
 
@@ -125,11 +122,11 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
     Console.WriteLine("-- Please enter the product name:");
     string nameRes = Console.ReadLine();
 
-    Console.Clear();
+
     Console.WriteLine("-- Please enter the product price:");
     decimal priceRes = decimal.Parse(Console.ReadLine().Trim());
 
-    Console.Clear();
+
     Console.WriteLine("-- Please select product type:");
     foreach (ProductType productType in productTypes)
     {
@@ -144,7 +141,6 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
         ProductTypeId = typeRes,
     };
     products.Add(newProduct);
-    Console.Clear();
     Console.WriteLine($"{newProduct.Name} listed for sale!");
 }
 
@@ -164,7 +160,6 @@ void UpdateProduct(List<Product> products, List<ProductType> productTypes)
         products[updateChoice].Name = nameRes;
     }
 
-    Console.Clear();
     Console.WriteLine("-- Please enter the updated product price:");
     string priceRes = Console.ReadLine();
     if (priceRes != "")
@@ -173,7 +168,6 @@ void UpdateProduct(List<Product> products, List<ProductType> productTypes)
         products[updateChoice].Price = newPrice;
     }
 
-    Console.Clear();
     Console.WriteLine("-- Please select updated product type:");
     foreach (ProductType productType in productTypes)
     {
