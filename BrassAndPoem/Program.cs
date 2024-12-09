@@ -53,46 +53,45 @@ List<ProductType> productTypes = new List<ProductType>()
 Console.WriteLine("Welcome to Brass & Poem!");
 
 //implement your loop here
-DisplayMenu();
+string choice = null;
+while (choice != "5")
+{
+    DisplayMenu();
+    choice = Console.ReadLine();
+    if (choice == "1")
+    {
+        DisplayAllProducts(products, productTypes);
+    }
+    else if (choice == "2")
+    {
+        DeleteProduct(products, productTypes);
+    }
+    else if (choice == "3")
+    {
+        AddProduct(products, productTypes);
+    }
+    else if (choice == "4")
+    {
+        UpdateProduct(products, productTypes);
+    }
+    else if (choice == "5")
+    {
+        Console.WriteLine("Goodbye!");
+    }
+    else 
+    {
+        Console.WriteLine("Invalid Input!");
+    }
+}
 
 void DisplayMenu()
 {
-    string choice = null;
-    while (choice != "5")
-    {
-        Console.WriteLine(@"1. Display all products
+    Console.WriteLine(@"1. Display all products
 2. Delete a product
 3. Add a new product
 4. Update product properties
 5. Exit
 ");
-
-        choice = Console.ReadLine();
-        if (choice == "1")
-        {
-            DisplayAllProducts(products, productTypes);
-        }
-        else if (choice == "2")
-        {
-            DeleteProduct(products, productTypes);
-        }
-        else if (choice == "3")
-        {
-            AddProduct(products, productTypes);
-        }
-        else if (choice == "4")
-        {
-            UpdateProduct(products, productTypes);
-        }
-        else if (choice == "5")
-        {
-            Console.WriteLine("Goodbye!");
-        }
-        else 
-        {
-            Console.WriteLine("Invalid Input!");
-        }
-    }
 }
 
 void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
