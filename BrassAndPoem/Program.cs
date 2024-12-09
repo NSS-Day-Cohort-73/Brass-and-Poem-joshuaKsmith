@@ -150,7 +150,41 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
 
 void UpdateProduct(List<Product> products, List<ProductType> productTypes)
 {
-    throw new NotImplementedException();
+    Console.WriteLine("Please select a product to update:");
+    for (int i = 0; i < products.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {products[i].Name} -- {productTypes[products[i].ProductTypeId - 1].Title} -- {products[i].Price}");
+    }
+    int updateChoice = int.Parse(Console.ReadLine().Trim()) - 1;
+
+    Console.WriteLine("-- Please enter the updated product name:");
+    string nameRes = Console.ReadLine();
+    if (nameRes.Length > 0)
+    {
+        products[updateChoice].Name = nameRes;
+    }
+
+    Console.Clear();
+    Console.WriteLine("-- Please enter the updated product price:");
+    string priceRes = Console.ReadLine();
+    if (priceRes != "")
+    {
+        decimal newPrice = decimal.Parse(priceRes.Trim());
+        products[updateChoice].Price = newPrice;
+    }
+
+    Console.Clear();
+    Console.WriteLine("-- Please select updated product type:");
+    foreach (ProductType productType in productTypes)
+    {
+        Console.WriteLine($"{productType.Id}. {productType.Title}");
+    }
+    string typeRes = Console.ReadLine();
+    if (typeRes != "")
+    {
+        int newType = int.Parse(typeRes.Trim());
+        products[updateChoice].ProductTypeId = newType;
+    }
 }
 
 // don't move or change this!
